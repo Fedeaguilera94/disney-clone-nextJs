@@ -1,5 +1,5 @@
 import { gql, GraphQLClient } from "graphql-request";
-
+import Section from "../components/Section";
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
   const graphQLclient = new GraphQLClient(url, {
@@ -39,8 +39,30 @@ export const getStaticProps = async () => {
 };
 
 const Home = ({ videos }) => {
-  console.log(videos);
-  return <div>app</div>;
+  const randomVideos = (videos) => {
+    return videos[Math.floor(Math.random() * videos.length)];
+  };
+
+  return (
+    <>
+      <div className="app">
+        <div className="main-video">
+          <img
+            src={randomVideos(videos).thumbnail.url}
+            alt={randomVideos(videos).title}
+          />
+        </div>
+      </div>
+      <div className="video-feed">
+        <section genre={"Action"} />
+        <section genre={"Action"} />
+        <section genre={"Action"} />
+        <section genre={"Action"} />
+        <section genre={"Action"} />
+        <section genre={"Action"} />
+      </div>
+    </>
+  );
 };
 
 export default Home;
