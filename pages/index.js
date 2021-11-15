@@ -1,6 +1,13 @@
 import { gql, GraphQLClient } from "graphql-request";
 import Section from "../components/Section";
 import NavBar from "../components/NavBar";
+import Link from "next/Link";
+import Image from "next/Image";
+import disneyLogo from "../public/disney-button.png";
+import marvelLogo from "../public/marvel-button.png";
+import pixarLogo from "../public/pixar.png";
+import starWarsLogo from "../public/star-wars-button.png";
+import natGeoLogo from "../public/natgeo-button.png";
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
   const graphQLclient = new GraphQLClient(url, {
@@ -9,7 +16,7 @@ export const getStaticProps = async () => {
     },
   });
 
-  const query = gql`
+  const videosQuery = gql`
     query {
       videos {
         createdAt
@@ -29,17 +36,30 @@ export const getStaticProps = async () => {
     }
   `;
 
-  const data = await graphQLclient.request(query);
-  const videos = data.videos;
+  const acccountQuery = gql`
+    query {
+      account(where: { id: "ckvyg4mj4z7ra0b800bq1ohrz" }) {
+        username
+        avatar {
+          url
+        }
+      }
+    }
+  `;
 
+  const data = await graphQLclient.request(videosQuery);
+  const videos = data.videos;
+  const accountData = await graphQLclient.request(acccountQuery);
+  const account = accountData.account;
   return {
     props: {
       videos,
+      account,
     },
   };
 };
 
-const Home = ({ videos }) => {
+const Home = ({ videos, account }) => {
   const randomVideos = (videos) => {
     return videos[Math.floor(Math.random() * videos.length)];
   };
@@ -56,7 +76,7 @@ const Home = ({ videos }) => {
 
   return (
     <>
-      <NavBar />
+      <NavBar account={account} />
       <div className="app">
         <div className="main-video">
           <img
@@ -66,20 +86,43 @@ const Home = ({ videos }) => {
         </div>
 
         <div className="video-feed">
-          <Section
-            genre={"Recommended for you"}
-            videos={unSeenVideos(videos)}
-          />
-          <Section genre={"Action"} videos={filterVideos(videos, "Action")} />
-          <Section genre={"Marvel"} videos={filterVideos(videos, "Marvel")} />
-          <Section genre={"Disney"} videos={filterVideos(videos, "disney")} />
-          <Section genre={"Pixar"} videos={filterVideos(videos, "Pixar")} />
-          <Section
-            genre={"Star Wars"}
-            videos={filterVideos(videos, "Star Wars")}
-          />
-          <Section genre={"Family"} videos={filterVideos(videos, "Family")} />
+          <Link href="#disney">
+            <div className="franchise">
+              <Image src={disneyLogo} />
+            </div>
+          </Link>
+          <Link href="#pixar">
+            <div className="franchise">
+              <Image src={pixarLogo} />
+            </div>
+          </Link>
+          <Link href="#star-wars">
+            <div className="franchise">
+              <Image src={starWarsLogo} />
+            </div>
+          </Link>
+          <Link href="#nat-geo">
+            <div className="franchise">
+              {" "}
+              <Image src={natGeoLogo} />
+            </div>
+          </Link>
+          <Link href="#marvel">
+            <div className="franchise">
+              <Image src={marvelLogo} />
+            </div>
+          </Link>
         </div>
+        <Section genre={"Recommended for you"} videos={unSeenVideos(videos)} />
+        <Section genre={"Action"} videos={filterVideos(videos, "Action")} />
+        <Section genre={"Marvel"} videos={filterVideos(videos, "Marvel")} />
+        <Section genre={"Disney"} videos={filterVideos(videos, "disney")} />
+        <Section genre={"Pixar"} videos={filterVideos(videos, "Pixar")} />
+        <Section
+          genre={"Star Wars"}
+          videos={filterVideos(videos, "Star Wars")}
+        />
+        <Section genre={"Family"} videos={filterVideos(videos, "Family")} />
       </div>
     </>
   );
