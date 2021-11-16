@@ -1,5 +1,7 @@
 import { gql, GraphQLClient } from "graphql-request";
 import { useState } from "react";
+import NavBar from "../../components/NavBar";
+import Link from "next/Link";
 
 export const getServerSideProps = async (pageContext) => {
   const url = process.env.ENDPOINT;
@@ -28,16 +30,29 @@ export const getServerSideProps = async (pageContext) => {
       }
     }
   `;
+  const acccountQuery = gql`
+    query {
+      account(where: { id: "ckvyg4mj4z7ra0b800bq1ohrz" }) {
+        username
+        avatar {
+          url
+        }
+      }
+    }
+  `;
   const variables = {
     pageSlug,
   };
 
   const data = await graphQLclient.request(query, variables);
   const video = data.video;
+  const accountData = await graphQLclient.request(acccountQuery);
+  const account = accountData.account;
 
   return {
     props: {
       video,
+      account,
     },
   };
 };
@@ -52,29 +67,35 @@ const changeToSeen = async (slug) => {
   });
 };
 
-const Video = ({ video }) => {
+const Video = ({ video, account }) => {
   const [watching, setWatching] = useState(false);
   return (
     <>
       {!watching && (
-        <img className="video-image" src={video.detail.url} alt={video.title} />
-      )}
-      {!watching && (
-        <div className="info">
-          <p>{video.tags.join(", ")}</p>
-          <p>{video.description}</p>
-          <a href="/">
-            <p>go back</p>
-          </a>
-          <button
-            onClick={() => {
-              changeToSeen(video.slug);
-              watching ? setWatching(false) : setWatching(true);
-            }}
-            className="video-overlay"
-          >
-            PLAY
-          </button>
+        <div className="detail-cont">
+          <div className="video-image">
+            <img
+              className="image-detail"
+              src={video.detail.url}
+              alt={video.title}
+            />
+          </div>
+
+          <div className="info">
+            <p>{video.tags.join(", ")}</p>
+            <p>{video.description}</p>
+            <Link href="/">
+              <p>go back</p>
+            </Link>
+            <button
+              onClick={() => {
+                watching ? setWatching(false) : setWatching(true);
+              }}
+              className="video-overlay"
+            >
+              PLAY
+            </button>
+          </div>
         </div>
       )}
 

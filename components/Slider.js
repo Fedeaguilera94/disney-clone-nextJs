@@ -13,13 +13,13 @@ function Slider() {
         interval={5000}
       >
         <div>
-          <img src="/baner-1.jpg" alt="img" />
+          <img src="/baner-1.jpg" alt="img1" />
         </div>
         <div>
-          <img src="/baner-2.jpg" alt="img" />
+          <img src="/baner-2.jpg" alt="img2" />
         </div>
         <div>
-          <img src="/baner-3.jpg" alt="img" />
+          <img src="/baner-3.jpg" alt="img3" />
         </div>
       </Carousel>
     </div>
