@@ -6,6 +6,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #13151f;
   color: #fff;
+  overflow-x: hidden;
 }
 
 a {
@@ -18,23 +19,25 @@ a {
 }
 
 .main-video {
+  display: flex;
   width: 100vw;
   height: 30vw;
   overflow: hidden;
   position: relative;
   margin-bottom: 50px;
+  align-items: center;
 }
 
 .card {
-  width: 20%;
+  width: 19.2%;
   height: auto;
   border-radius: 5%;
-  margin: 5px;
+  margin: 0.4%;
   filter: drop-shadow(5px 5px 10px #000);
 }
 
 .main-video img {
-  width: 100%;
+  width: 1741px;
 }
 
 .navbar {
@@ -79,16 +82,51 @@ a {
 }
 
 .franchise {
-  width: 20%;
-  background-color: #1e2841;
   margin: 5px;
+  display: flex;
+  justify-content: space-around;
+  max-width: 350px;
+  background-image: linear-gradient(rgb(58, 60, 74), rgb(36, 38, 50));
+  box-shadow: rgba(0, 0, 0, 0.69) 0px 26px 30px -10px,
+    rgba(0, 0, 0, 0.73) 0px 16px 10px -10px;
   border-radius: 10px;
+  border: 4px solid #3e404c;
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
 }
 
 .video-feed {
   display: flex;
+  justify-content: space-evenly;
 }
 
 .logo-wrapper {
   padding: 10px 30px;
+  cursor: pointer;
+}
+
+.pixar:hover {
+  background: url("https://prod-ripcut-delivery.disney-plus.net/v1/rawFiles/disney/RAW_92FA84DF0F5D951171B41E5947716ADA382A15AE5DA37869E9D592D043F49316");
+  background-size: cover;
+  border: 4px solid white;
+  transform: scale(1.05);
+}
+.disney:hover {
+  background: url("https://prod-ripcut-delivery.disney-plus.net/v1/rawFiles/disney/RAW_C061B00E543326DA345FBF996B4D3D76422B58A49FDEE9AD9A2664618619A8F9");
+  background-size: cover;
+  border: 4px solid white;
+  transform: scale(1.05);
+}
+
+.starwars:hover {
+  background: url("https://prod-ripcut-delivery.disney-plus.net/v1/rawFiles/disney/RAW_59F432D7A600A8F1CE36AE4D0B96570AC7C8277A0E8855BC06FABBAE090E6577");
+  background-size: cover;
+  border: 4px solid white;
+  transform: scale(1.05);
+}
+.marvel:hover {
+  background: url("https://prod-ripcut-delivery.disney-plus.net/v1/rawFiles/disney/RAW_B8F3C4DDB037CD1840A53BDFA0AA0504E9FDDE7781D62D28230D5C74F2B06624");
+  background-size: cover;
+  border: 4px solid white;
+  transform: scale(1.05);
 }
