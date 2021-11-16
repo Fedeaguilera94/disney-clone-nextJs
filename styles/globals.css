@@ -20,14 +20,14 @@ a {
 
 .main-video {
   display: flex;
-  width: 100vw;
-  height: 30vw;
-  overflow: hidden;
   position: relative;
-  margin-bottom: 50px;
-  align-items: center;
+  margin: 0;
+  justify-content: center;
+  padding: 10px;
 }
-
+.slide {
+  padding: 10px;
+}
 .card {
   width: 19.2%;
   height: auto;
@@ -126,6 +126,12 @@ a {
 }
 .marvel:hover {
   background: url("https://prod-ripcut-delivery.disney-plus.net/v1/rawFiles/disney/RAW_B8F3C4DDB037CD1840A53BDFA0AA0504E9FDDE7781D62D28230D5C74F2B06624");
+  background-size: cover;
+  border: 4px solid white;
+  transform: scale(1.05);
+}
+.natgeo:hover {
+  background: url("https://prod-ripcut-delivery.disney-plus.net/v1/rawFiles/disney/RAW_16793CC7E2AF7B8687B0DD00673503CBC14CB2C801952D62B4551B6866073650");
   background-size: cover;
   border: 4px solid white;
   transform: scale(1.05);

@@ -1,13 +1,13 @@
 import Link from "next/Link";
 import Image from "next/Image";
-import logo from "../public/disneylogo.webp";
+import logo from "../public/logo.svg";
 
 const NavBar = ({ account }) => {
   return (
     <div className="navbar">
       <div className="logo-wrapper">
         <Link href="/">
-          <Image src={logo} alt={"Disney Logo"} width={220} height={80} />
+          <Image src={logo} alt={"Disney Logo"} width={80} height={80} />
         </Link>
       </div>
 
