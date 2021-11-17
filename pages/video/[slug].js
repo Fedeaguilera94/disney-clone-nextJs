@@ -2,6 +2,7 @@ import { gql, GraphQLClient } from "graphql-request";
 import { useState } from "react";
 import NavBar from "../../components/NavBar";
 import Link from "next/Link";
+import Image from "next/Image";
 
 export const getServerSideProps = async (pageContext) => {
   const url = process.env.ENDPOINT;

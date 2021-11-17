@@ -1,5 +1,6 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import Image from "next/Image";
 
 function Slider() {
   return (
@@ -13,7 +14,7 @@ function Slider() {
         interval={5000}
       >
         <div>
-          <img src="/baner-1.jpg" alt="img1" />
+          <img src="/baner-1.jpg" />
         </div>
         <div>
           <img src="/baner-2.jpg" alt="img2" />
