@@ -1,5 +1,4 @@
 import Card from "./Card";
-import Link from "next/Link";
 
 const Section = ({ genre, videos }) => {
   return (
