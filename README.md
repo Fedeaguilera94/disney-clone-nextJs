@@ -1,4 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Disney+ Clone
+
+## Next.js || GraphQl
+
+### Creacion de api propia en https://graphcms.com/
+
+# Home
+
+<div align='center'>
+<img width="296" height="190" alt="movies-finder-app" src="https://media.giphy.com/media/ULqw1PCApXeQ4lpnCW/giphy.gif"/>
+</div>
+<img src="./home.png"/>
+
+# Sections
+
+<img src="./section.png"/>
+
+# Detail
+
+<img src="./detail.png"/>
 
 ## Getting Started
 

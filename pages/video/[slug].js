@@ -100,6 +100,7 @@ const Video = ({ video, account }) => {
               </Link>
               <button
                 onClick={() => {
+                  changeToSeen(video.slug);
                   watching ? setWatching(false) : setWatching(true);
                 }}
                 className="video-overlay"
