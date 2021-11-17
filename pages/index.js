@@ -13,9 +13,10 @@ import Slider from "../components/Slider";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
+  const token = process.env.TOKEN_GRAPH;
   const graphQLclient = new GraphQLClient(url, {
     headers: {
-      Authorization: process.env.TOKEN_GRAPH,
+      Authorization: token || "",
     },
   });
 

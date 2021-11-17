@@ -5,9 +5,10 @@ import Link from "next/link";
 
 export const getServerSideProps = async (pageContext) => {
   const url = process.env.ENDPOINT;
+  const token = process.env.TOKEN_GRAPH;
   const graphQLclient = new GraphQLClient(url, {
     headers: {
-      Authorization: process.env.TOKEN_GRAPH,
+      Authorization: token || "",
     },
   });
   const pageSlug = pageContext.query.slug;
