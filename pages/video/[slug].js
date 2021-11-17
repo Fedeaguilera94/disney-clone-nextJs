@@ -71,6 +71,9 @@ const Video = ({ video, account }) => {
   const [watching, setWatching] = useState(false);
   return (
     <>
+      <div className="header-info">
+        <NavBar account={account} />
+      </div>
       {!watching && (
         <div className="detail-cont">
           <div className="video-image">
@@ -80,22 +83,31 @@ const Video = ({ video, account }) => {
               alt={video.title}
             />
           </div>
-
-          <div className="info">
-            <p>{video.tags.join(", ")}</p>
-            <p>{video.description}</p>
-            <Link href="/">
-              <p>go back</p>
-            </Link>
-            <button
-              onClick={() => {
-                watching ? setWatching(false) : setWatching(true);
-              }}
-              className="video-overlay"
-            >
-              PLAY
-            </button>
-          </div>
+          <article className="article-info">
+            <div className="info">
+              <p style={{ fontSize: "15px", paddingTop: "12%" }}>
+                {video.tags.join(", ")}
+              </p>
+              <Link href="/">
+                <p
+                  style={{
+                    cursor: "pointer",
+                  }}
+                >
+                  Go back
+                </p>
+              </Link>
+              <button
+                onClick={() => {
+                  watching ? setWatching(false) : setWatching(true);
+                }}
+                className="video-overlay"
+              >
+                ► WATCH NOW
+              </button>
+              <p>{video.description}</p>
+            </div>
+          </article>
         </div>
       )}
 

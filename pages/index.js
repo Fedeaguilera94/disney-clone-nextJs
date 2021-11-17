@@ -3,11 +3,11 @@ import Section from "../components/Section";
 import NavBar from "../components/NavBar";
 import Link from "next/Link";
 import Image from "next/Image";
-import disneyLogo from "../public/disney-button.png";
-import marvelLogo from "../public/marvel-button.png";
-import pixarLogo from "../public/pixar.png";
-import starWarsLogo from "../public/star-wars-button.png";
-import natGeoLogo from "../public/natgeo-button.png";
+import disneyLogo from "../public/disney-scale.png";
+import marvelLogo from "../public/marve-scale.png";
+import pixarLogo from "../public/pixar-scale.png";
+import starWarsLogo from "../public/star-wars-scale.png";
+import natGeoLogo from "../public/natgeo-scale.png";
 
 import Slider from "../components/Slider";
 
@@ -79,7 +79,10 @@ const Home = ({ videos, account }) => {
 
   return (
     <>
-      <NavBar account={account} />
+      <div className="nav">
+        <NavBar account={account} />
+      </div>
+
       <div className="app">
         <div className="main-video">
           <Slider />

@@ -1,13 +1,28 @@
 import Link from "next/Link";
 import Image from "next/Image";
 import logo from "../public/logo.svg";
+import { useEffect, useState } from "react";
 
 const NavBar = ({ account }) => {
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    let cancel = false;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 30) {
+        setScroll(true);
+      } else setScroll(false);
+    });
+  }, []);
+
   return (
-    <div className="navbar">
+    <div className={`navbar ${scroll && "nav-black"}`}>
       <div className="logo-wrapper">
         <Link href="/">
-          <Image src={logo} alt={"Disney Logo"} width={80} height={80} />
+          <a>
+            <Image src={logo} alt={"Disney Logo"} width={80} height={80} />
+          </a>
         </Link>
       </div>
 
