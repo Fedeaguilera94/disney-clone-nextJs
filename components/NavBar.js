@@ -29,6 +29,7 @@ const NavBar = ({ account }) => {
             target="_blank"
             className="menu-ref"
             href="mailto:aguilerafederico94@gmail.com"
+            rel="noreferrer"
           >
             Mail
           </a>
@@ -38,12 +39,17 @@ const NavBar = ({ account }) => {
           <a
             target="_blank"
             href="https://www.linkedin.com/in/federicoaguilera/"
+            rel="noreferrer"
           >
             Linkedin
           </a>
         </li>
         <li>
-          <a target="_blank" href="https://github.com/Fedeaguilera94">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/Fedeaguilera94"
+          >
             GitHub
           </a>
         </li>
