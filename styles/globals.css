@@ -1,9 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #13151f;
   color: #fff;
   overflow-x: hidden;
@@ -12,6 +13,11 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .app {
@@ -34,6 +40,14 @@ a {
   border-radius: 5%;
   margin: 0.4%;
   filter: drop-shadow(5px 5px 10px #000);
+  outline: solid 0px rgba(255, 255, 255, 0.65);
+  transition: outline 0.1s linear;
+}
+.card:hover {
+  outline-width: 4px;
+}
+.card-div {
+  padding: 1px;
 }
 
 .navbar {
@@ -95,8 +109,23 @@ a {
   height: 3rem;
   cursor: pointer;
 }
-.info-footer {
+.info-footer,
+.info-f {
+  display: flex;
   height: 100vh;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+.info-f {
+  height: 30vh;
+}
+
+.footer-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .account-info {
   display: flex;
@@ -131,7 +160,7 @@ a {
 }
 
 .logo-wrapper {
-  padding: 10px 30px;
+  padding: 10px 60px;
   cursor: pointer;
 }
 
@@ -177,4 +206,57 @@ a {
   bottom: auto;
   visibility: visible;
   z-index: 1;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: 20px;
+}
+
+.menu li {
+  justify-content: center;
+}
+
+.menu a {
+  font-size: 17px;
+  margin: 1rem;
+  position: relative;
+  display: block;
+  padding: 5px;
+}
+
+.menu a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+  z-index: 1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+}
+
+.menu a:hover::before {
+  transform: scaleX(1);
+}
+
+.trailer {
+  cursor: pointer;
+  display: flex;
+  margin-top: 2%;
+  margin-left: 5%;
+  font-size: 40px;
+}
+
+.trailer a:hover {
+  transform: scale(1.05);
+}
+
+.trailer-video {
+  margin-top: 1rem;
 }

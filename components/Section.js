@@ -6,7 +6,7 @@ const Section = ({ genre, videos }) => {
       <h3>{genre}</h3>
       <div>
         {videos?.map((video) => (
-          <a key={video.id} href={`/video/${video.slug}`}>
+          <a className="card-div" key={video.id} href={`/video/${video.slug}`}>
             <Card thumbnail={video.thumbnail} />
           </a>
         ))}

@@ -23,7 +23,31 @@ const NavBar = ({ account }) => {
           </a>
         </Link>
       </div>
+      <ul className="menu">
+        <li>
+          <a
+            target="_blank"
+            className="menu-ref"
+            href="mailto:aguilerafederico94@gmail.com"
+          >
+            Mail
+          </a>
+        </li>
 
+        <li>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/federicoaguilera/"
+          >
+            Linkedin
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="https://github.com/Fedeaguilera94">
+            GitHub
+          </a>
+        </li>
+      </ul>
       <div className="account-info">
         <p>Welcome {account.username}</p>
         <img className="avatar" src={account.avatar.url} />
