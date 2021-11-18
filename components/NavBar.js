@@ -7,8 +7,6 @@ const NavBar = ({ account }) => {
   const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
-    let cancel = false;
-
     window.addEventListener("scroll", () => {
       if (window.scrollY > 30) {
         setScroll(true);
